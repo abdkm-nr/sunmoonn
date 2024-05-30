@@ -1,6 +1,4 @@
-body{
-    margin-top: 40px;
-}
+
 :root {
     --carousel-transition-duration: 250ms;
     --carousel-transition-ease: ease-out;
@@ -15,10 +13,6 @@ body{
     --carousel-item-glow-size: 5rem;
     --carousel-diameter: 70rem;
     --carousel-3d-perspective: 1000px;
-    --carousel-3d-perspective-origin: 20% 50%;
-    --carousel-control-button-width: 1.25rem;
-    --carousel-control-button-height: 4rem;
-    --carousel-control-color-rgb: 255, 255, 255;
     --carousel-animation-duration: 25s;
     --carousel-animation-play-state: running;
     --carousel-direction-animation-play-state: paused;
@@ -49,14 +43,14 @@ a {
 }
 
 body {
-    
+    width: 80%;
+    padding: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start;
     background-color: rgb(var(--carousel-bg-color-rgb));
-    overflow: hidden;
-    
+  
 }
 
 /*
@@ -70,58 +64,7 @@ carousel
     perspective: var(--carousel-3d-perspective);
     perspective-origin: var(--carousel-3d-perspective-origin);
     width: var(--_diameter);
-    height: var(--_diameter);
-}
-
-@media only screen and (max-width: 48rem) {
-    .carousel {
-            --_diameter: calc(var(--carousel-diameter) * 0.75);
-            --_item-width: calc(var(--carousel-item-width) * 0.75);
-            --_item-height: calc(var(--carousel-item-height) * 0.75);
-    }
-}
-
-@media only screen and (max-width: 32rem) {
-    .carousel {
-            --_diameter: calc(var(--carousel-diameter) * 0.6);
-            --_item-width: calc(var(--carousel-item-width) * 0.6);
-            --_item-height: calc(var(--carousel-item-height) * 0.6);
-    }
-}
-
-@media only screen and (max-width: 16rem) {
-    .carousel {
-            --_diameter: calc(var(--carousel-diameter) * 0.25);
-            --_item-width: calc(var(--carousel-item-width) * 0.25);
-            --_item-height: calc(var(--carousel-item-height) * 0.25);
-    }
-}
-
-.carousel .carousel-control-button {
-    --_width: var(--carousel-control-button-width);
-    --_height: var(--carousel-control-button-height);
-    z-index: 1;
-    width: var(--_width);
-    height: var(--_height);
-    background-color: rgb(var(--carousel-control-color-rgb));
-    opacity: 0.2;
-    transition: opacity var(--carousel-transition-duration) var(--carousel-transition-ease);
-    position: absolute;
-}
-.carousel .carousel-control-button:hover {
-    opacity: 0.4;
-}
-.carousel .carousel-control-button:has(input:checked) {
-    opacity: 0.8;
-}
-
-.carousel .carousel-control-button input {
-    -webkit-appearance: none;
-    appearance: none;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+    height: 950px;
 }
 
 .carousel .carousel-rotation-direction {
@@ -131,11 +74,6 @@ carousel
     transform-style: preserve-3d;
     animation: carousel-rotation-reverse calc(var(--carousel-animation-duration) / 2) reverse linear infinite var(--_direction-animation-play-state);
     transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
-}
-
-@keyframes carousel-rotation-reverse {
-    from {transform: translateZ(var(--_z)) rotateY(0deg);}
-    to {transform: translateZ(var(--_z)) rotateY(360deg);}
 }
 
 @keyframes carousel-rotation-normal {
@@ -192,8 +130,6 @@ carousel
     
 }
 
-
-
 .carousel .carousel-item::before {
     content: '';
     width: inherit;
@@ -214,26 +150,137 @@ carousel
     position: absolute;
 }
 
-.carousel .carousel-item:hover::before {
-    filter: blur(var(--carousel-item-reflection-blur)) grayscale(0%);
+h2.movie {
+  margin-top: 30px;
+  margin-bottom: 70px;
+  background-color: rgb(146, 0, 0);
+  color: rgb(199, 199, 199);
+  padding: 15px ;
+  width: 100%;
+  z-index: 5;
 }
 
-.carousel .carousel-ground {
-    --_width: var(--_diameter);
-    --_height: var(--_diameter);
-    --_rotation: 90deg;
-    left: calc(var(--_radius) - var(--_width) / 2);
-    top: calc(var(--_radius) - var(--_height) / 2);
-    transform: rotateX(var(--_rotation)) translateZ(calc(var(--_item-height) / -2));
-    width: var(--_width);
-    height: var(--_height);
-    border-radius: 50%;
-    background: radial-gradient(rgba(var(--carousel-shadow-color-rgb), 0.75) 15% , rgba(var(--carousel-bg-color-rgb), 0) 60%);
-    opacity: 0.5;
-    transition: opacity var(--carousel-transition-duration) var(--carousel-transition-ease);
-    position: absolute;
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,400');
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: thin;
+ 
+}
+body:after{
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: -1;
+  width: 200%;
+  height: 200%;
+  
+  background-size: contain;
+  background-position: 600px -200px;
+  
+  filter: blur(30px);
+}
+.movie-card {
+  position: relative;
+  box-sizing: border-box;
+  width: 50%;
+  max-width: 800px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  margin: 4vh auto;
+  border-radius: 4px;
+  box-shadow: 2px 3px 12px rgba(0, 0, 0, .4);
+  color: white;
+  padding: 2vh 3%;
+}
+.movie-card:after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(to right, rgba(40,40,60,1) 0%,rgba(40,0,60,0) 90%);
+  background-blend-mode: multiply;
+  will-change: transform;
+  z-index: 0;
+}
+i {
+  font-size: .7em;
+  color: #ff5b84;
+}
+h1 {
+  font-size: 170%;
+  position: relative;
+  z-index: 10;
+}
+span {
+  display: inline-block;
+  position: relative;
+  margin-top: 20px;
+  z-index: 10;
+  margin-right: 80px;
+  color: rgb(210, 210, 210);
+}
+.watch {
+  display: block;
+  border: 1px solid white;
+  border-radius: 4px;
+  position: relative;
+  z-index: 10;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  background: rgba(0, 0, 0, .3);
+  margin: 40px 0px;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+  transition: all .2s;
+}
+button:hover {
+  background: rgba(255, 255, 255, .8);
+  color: black;
+  box-shadow: 0 0 10px rgba(255,255,255,.5);
+  mix-blend-mode: screen;
+}
+button:active {
+  transform: translateY(2px);
+}
+p {
+  position: relative;
+  margin-top: 20px;
+  z-index: 10;
+  font-size: .8em;
+  width: 60%;
+  height: 35%;
 }
 
-.carousel .carousel-item-wrapper:has(.carousel-item:hover) .carousel-ground {
-    opacity: 0.75;
+@media (max-width: 768px) {
+ 
+  .movie-card {
+    width: 75%;
+    height: 200px;
+  }
+  h1 {
+  font-size: 120%;
+  }
+  p {
+    display: none;
+/*     overflow: hidden;
+    width: 100%;
+    height: 30%; */
+  }
+  .watch {
+    margin: 5% auto;
+  }
+}
+@media (max-width: 500px) {
+  .movie-card {
+    width: 100%;
+  }
 }

@@ -1,4 +1,4 @@
-// src/components/About.js
+
 import React, { Component } from 'react';
 
 class About extends Component {

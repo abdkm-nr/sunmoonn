@@ -1,40 +1,153 @@
-.app {
-    font-family: Arial, sans-serif;
-  }
-  
-  .movie-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,400');
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: thin;
+ 
+}
+
+.movie-card {
+  width: calc(50% - 20px);
+  max-width: 800px;
+  float: left;
+  position: relative;
+  box-sizing: border-box;
+  width: 50%;
+  max-width: 800px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  margin: 4vh auto;
+  border-radius: 4px;
+  box-shadow: 2px 3px 12px rgba(0, 0, 0, .4);
+  color: white;
+  padding: 2vh 3%;
+}
+.movie-card:after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(to right, rgba(40,40,60,1) 0%,rgba(40,0,60,0) 90%);
+  background-blend-mode: multiply;
+  will-change: transform;
+  z-index: 0;
+}
+i {
+  margin-left: 20px;
+  font-size: .7em;
+  color: #ff5b84;
+}
+h1 {
+  font-size: 170%;
+  position: relative;
+  z-index: 10;
+}
+span {
+  display: inline-block;
+  position: relative;
+  margin-top: 20px;
+  z-index: 10;
+  margin-right: 80px;
+  color: rgb(210, 210, 210);
+}
+.watch {
+  display: block;
+  border: 1px solid white;
+  border-radius: 4px;
+  position: relative;
+  z-index: 10;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  background: rgba(0, 0, 0, .3);
+  margin: 40px 0px;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+  transition: all .2s;
+}
+button:hover {
+  background: rgba(255, 255, 255, .8);
+  color: black;
+  box-shadow: 0 0 10px rgba(255,255,255,.5);
+  mix-blend-mode: screen;
+}
+button:active {
+  transform: translateY(2px);
+}
+p {
+  position: relative;
+  margin-top: 20px;
+  z-index: 10;
+  font-size: .8em;
+  width: 60%;
+  height: 35%;
+}
+
+@media (max-width: 768px) {
+ 
   .movie-card {
-    width: 200px;
-    margin: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    text-align: center;
+    width: 75%;
+    height: 200px;
   }
-  
-  .movie-card img {
+  h1 {
+  font-size: 120%;
+  }
+  p {
+    display: none;
+
+  }
+  .watch {
+    margin: 5% auto;
+  }
+}
+@media (max-width: 500px) {
+  .movie-card {
     width: 100%;
-    height: auto;
   }
-  
-  .movie-details {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  .movie-details img {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-    margin: 0 auto 20px;
-  }
-  
+}
+
+
+
+.movie-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 5;
+}
+
+.movie-details {
+  display: flex;
+}
+
+.movie-poster {
+  width: 300px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.movie-info {
+  color: aliceblue;
+  max-width: 600px;
+}
+
+.movie-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.movie-description {
+  color: aliceblue;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.movie-rating,
+.movie-actors {
+  font-size: 16px;
+  margin-bottom: 5px;
+}

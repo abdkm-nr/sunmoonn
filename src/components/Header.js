@@ -41,7 +41,7 @@ const Header = () => {
                 </ul>
               )}
             </li>
-            <li><Link to="/Category">Category</Link></li>
+            <li><Link to="/CatalogPage">Catalog</Link></li>
           </ul>
         </nav>
       </div>

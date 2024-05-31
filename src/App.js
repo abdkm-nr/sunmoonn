@@ -1,11 +1,13 @@
+// App.js
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
 import Services from './components/Services';
-import Category from './components/Category';
-import MovieDetails from './components/MovieDetails'; // Импортируем компонент для детальной информации о фильме
+import CatalogPage from "./components/CatalogPage";
+import MoviePage from "./components/MoviePage";
+import moviedata from "./components/moviedata";
 
 const App = () => {
   return (
@@ -16,8 +18,9 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services services={['Web Development', 'App Development', 'SEO Optimization']} />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/movie/:id" element={<MovieDetails />} /> {/* Добавляем маршрут для детальной информации о фильме */}
+          <Route path="/CatalogPage" element={<CatalogPage />} />
+          <Route exact path="/movies" element={<CatalogPage />} />
+          <Route path="/movies/:id" element={<MoviePage movies={moviedata} />} />
         </Routes>
       </div>
     </BrowserRouter>

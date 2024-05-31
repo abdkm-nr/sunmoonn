@@ -1,19 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import './css/home.css';
 
-
-
-
-
 function Home() {
   return (
-    <div>
-      <div className="carousel">
-
-        <div className="carousel-rotation-direction">
-
+    <div className="carousel">
+       <div className="carousel-rotation-direction">
           <ul className="carousel-item-wrapper" style={{'--_num-elements': 11}}>
-
             <li className="carousel-item" style={{'--_index': 1, '--_image-url': "url('https://i.pinimg.com/564x/dc/99/f0/dc99f000c9323d9ffbaae6284decfb53.jpg')"}}><a href="https://i.pinimg.com/564x/dc/99/f0/dc99f000c9323d9ffbaae6284decfb53.jpg" target="_blank" rel="noreferrer">Film Example 1</a></li>
             <li className="carousel-item" style={{'--_index': 2, '--_image-url': "url('https://i.pinimg.com/564x/ce/39/50/ce395081a8e65bcabac074b08037cabf.jpg')"}}><a href="https://i.pinimg.com/564x/ce/39/50/ce395081a8e65bcabac074b08037cabf.jpg" target="_blank" rel="noreferrer">Film Example 2</a></li>
             <li className="carousel-item" style={{'--_index': 3, '--_image-url': "url('https://i.pinimg.com/564x/40/ae/e0/40aee059154d8b78df0b4ad03e621e31.jpg')"}}><a href="https://i.pinimg.com/564x/40/ae/e0/40aee059154d8b78df0b4ad03e621e31.jpg" target="_blank" rel="noreferrer">Film Example 3</a></li>
@@ -30,7 +22,6 @@ function Home() {
           </ul>
         </div>
       </div>
-    </div>
   );
 }
 
@@ -120,11 +111,10 @@ function Anime() {
   useEffect(() => {
     movieDB.forEach(printMovieInfo);
     if (cardContainerRef.current) {
-      // Clear any existing children to avoid duplication
       cardContainerRef.current.innerHTML = '';
       movieDB.forEach(createCard);
     }
-  }, []); // Empty dependency array means this effect runs once after initial render
+  }, []);
 
   return (
     <div>

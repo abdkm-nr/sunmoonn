@@ -1,0 +1,40 @@
+.app {
+    font-family: Arial, sans-serif;
+  }
+  
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .movie-card {
+    width: 200px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .movie-details {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .movie-details img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin: 0 auto 20px;
+  }
+  

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
+//Nurai posmotri
+
 const GlobalStyle = createGlobalStyle`
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap");
 

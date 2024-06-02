@@ -1,15 +1,19 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import All from './components/Home';
-import About from './components/About';
-import Services from './components/Services';
-import Contact from './components/Contact';
-import LoginForm from './components/LoginForm';
-import SignUpForm from './components/SignUpForm';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import Header from './Header/Header';
+import All from './Home/Home';
+import About from './About/About';
+import Contact from './Contact/Contact';
+import Login from './Login/Login';
+import OurTeam from './OurTeam/OurTeam';
 
+function App() {
+  const handleContactSubmit = (formData) => {
+    console.log('Contact form data:', formData);
+    // Здесь можно отправить данные на сервер
+  };
 
-const App = () => {
+// const App = () => {
   return (
     <BrowserRouter>
       <div>
@@ -17,15 +21,15 @@ const App = () => {
         <Routes>
           <Route path="/" element={<All />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services services={['Web Development', 'App Development', 'SEO Optimization']} />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/signup" component={SignUpForm} />
-        <Route path="/" component={LoginForm} />
+          {/* <Route path="/contact" element={<Contact/>} /> */}
+          <Route path="/contact" element={<Contact onSubmit={handleContactSubmit} />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/ourteam" element={<OurTeam/>} />
         </Routes>
       </div>
     </BrowserRouter>
   );
-};
+}
+
 
 export default App;

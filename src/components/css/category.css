@@ -2,7 +2,9 @@
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: thin;
- 
+}
+.catalog-page{
+  margin-top: 90px;
 }
 
 .movie-card {
@@ -43,6 +45,7 @@ i {
 }
 h1 {
   font-size: 170%;
+  color: aliceblue;
   position: relative;
   z-index: 10;
 }
@@ -112,42 +115,4 @@ p {
 
 
 
-.movie-details-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  z-index: 5;
-}
 
-.movie-details {
-  display: flex;
-}
-
-.movie-poster {
-  width: 300px;
-  height: auto;
-  margin-right: 20px;
-}
-
-.movie-info {
-  color: aliceblue;
-  max-width: 600px;
-}
-
-.movie-title {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.movie-description {
-  color: aliceblue;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.movie-rating,
-.movie-actors {
-  font-size: 16px;
-  margin-bottom: 5px;
-}

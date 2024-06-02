@@ -1,0 +1,49 @@
+.about-container {
+    text-align: center;
+    padding: 100px;
+  }
+  
+  .about-team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .about-team-member {
+    background-color: #fff;
+    border: 3px solid #941d1d;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-avatar {
+    border-radius: 70%;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .about-h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+  }
+  
+  .about-p {
+    font-size: 1em;
+    color: #666;
+    text-align: center;
+  }
+  
+  .about-instagram-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #941d1d;
+    text-decoration: none;
+  }
+  
+  .about-instagram-link:hover {
+    text-decoration: underline;
+  }
+  

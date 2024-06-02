@@ -1,153 +1,149 @@
-
 :root {
-    --carousel-transition-duration: 250ms;
-    --carousel-transition-ease: ease-out;
-    --carousel-bg-color-rgb: 0, 0, 0;
-    --carousel-shadow-color-rgb: 128, 128, 128;
-    --carousel-item-width: 14.5rem;
-    --carousel-item-height: 24.5rem;
-    --carousel-item-hover-effect: 1.075;
-    --carousel-item-reflection-blur: 0.25rem;
-    --carousel-item-empty-color-rgb: 255, 255, 255;
-    --carousel-item-glow-color-rgb: 255, 255, 255;
-    --carousel-item-glow-size: 5rem;
-    --carousel-diameter: 70rem;
-    --carousel-3d-perspective: 1000px;
-    --carousel-animation-duration: 25s;
-    --carousel-animation-play-state: running;
-    --carousel-direction-animation-play-state: paused;
+  --carousel-transition-duration: 250ms;
+  --carousel-transition-ease: ease-out;
+  --carousel-bg-color-rgb: 0, 0, 0;
+  --carousel-shadow-color-rgb: 128, 128, 128;
+  --carousel-item-width: 14.5rem;
+  --carousel-item-height: 24.5rem;
+  --carousel-item-hover-effect: 1.075;
+  --carousel-item-reflection-blur: 0.25rem;
+  --carousel-item-empty-color-rgb: 255, 255, 255;
+  --carousel-item-glow-color-rgb: 255, 255, 255;
+  --carousel-item-glow-size: 5rem;
+  --carousel-diameter: 70rem;
+  --carousel-3d-perspective: 1000px;
+  --carousel-animation-duration: 25s;
+  --carousel-animation-play-state: running;
+  --carousel-direction-animation-play-state: paused;
 }
 
 /*
 global
 */
 *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 a {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body {
-    width: 80%;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: rgb(var(--carousel-bg-color-rgb));
-  
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(var(--carousel-bg-color-rgb));
 }
 
 /*
 carousel
 */
 .carousel {
-    --_diameter: var(--carousel-diameter);
-    --_radius: calc(var(--_diameter) / 2);
-    --_item-width: var(--carousel-item-width);
-    --_item-height: var(--carousel-item-height);
-    perspective: var(--carousel-3d-perspective);
-    perspective-origin: var(--carousel-3d-perspective-origin);
-    width: var(--_diameter);
-    height: 950px;
+  --_diameter: var(--carousel-diameter);
+  --_radius: calc(var(--_diameter) / 2);
+  --_item-width: var(--carousel-item-width);
+  --_item-height: var(--carousel-item-height);
+  perspective: var(--carousel-3d-perspective);
+  perspective-origin: var(--carousel-3d-perspective-origin);
+  width: var(--_diameter);
+  height: 950px;
 }
 
 .carousel .carousel-rotation-direction {
-    --_direction-animation-play-state: var(--carousel-direction-animation-play-state);
-    --_z: calc(var(--_radius) * -1);
-    transform: translateZ(var(--_z));
-    transform-style: preserve-3d;
-    animation: carousel-rotation-reverse calc(var(--carousel-animation-duration) / 2) reverse linear infinite var(--_direction-animation-play-state);
-    transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
+  --_direction-animation-play-state: var(--carousel-direction-animation-play-state);
+  --_z: calc(var(--_radius) * -1);
+  transform: translateZ(var(--_z));
+  transform-style: preserve-3d;
+  animation: carousel-rotation-reverse calc(var(--carousel-animation-duration) / 2) reverse linear infinite var(--_direction-animation-play-state);
+  transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
 }
 
 @keyframes carousel-rotation-normal {
-    from {transform: rotateY(0deg);}
-    to {transform: rotateY(360deg);}
+  from {transform: rotateY(0deg);}
+  to {transform: rotateY(360deg);}
 }
 
 .carousel .carousel-item-wrapper {
-    transform-style: inherit;
-    width: inherit;
-    height: inherit;
-    list-style-type: none;
-    position: relative;
-    animation: carousel-rotation-normal var(--carousel-animation-duration) normal linear infinite var(--carousel-animation-play-state);
-    transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
+  transform-style: inherit;
+  width: inherit;
+  height: inherit;
+  list-style-type: none;
+  position: relative;
+  animation: carousel-rotation-normal var(--carousel-animation-duration) normal linear infinite var(--carousel-animation-play-state);
+  transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
 }
 
 .carousel .carousel-rotation-direction:has(.carousel-item:hover) {
-    --carousel-animation-play-state: paused;
-    --_direction-animation-play-state: paused;
+  --carousel-animation-play-state: paused;
+  --_direction-animation-play-state: paused;
 }
 
 .carousel .carousel-item {
-    --_width: var(--_item-width);
-    --_height: var(--_item-height);
-    --_rotation: calc(360 / var(--_num-elements) * var(--_index) * 1deg);
-    left: calc(var(--_radius) - var(--_item-width) / 2);
-    top: calc(var(--_radius) - var(--_item-height) / 2);
-    transform: rotateY(var(--_rotation)) translateZ(var(--_radius));
-    transform-style: inherit;
-    width: var(--_width);
-    height: var(--_height);
-    transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
-    box-shadow: 0 0 var(--carousel-item-glow-size) transparent;
-    position: absolute;
+  --_width: var(--_item-width);
+  --_height: var(--_item-height);
+  --_rotation: calc(360 / var(--_num-elements) * var(--_index) * 1deg);
+  left: calc(var(--_radius) - var(--_item-width) / 2);
+  top: calc(var(--_radius) - var(--_item-height) / 2);
+  transform: rotateY(var(--_rotation)) translateZ(var(--_radius));
+  transform-style: inherit;
+  width: var(--_width);
+  height: var(--_height);
+  transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
+  box-shadow: 0 0 var(--carousel-item-glow-size) transparent;
+  position: absolute;
 }
 
 .carousel .carousel-item:hover {
-    box-shadow: 0 0 var(--carousel-item-glow-size) rgb(var(--carousel-item-glow-color-rgb));
-    transform: rotateY(var(--_rotation)) translateZ(calc(var(--_radius) * var(--carousel-item-hover-effect)));
+  box-shadow: 0 0 var(--carousel-item-glow-size) rgb(var(--carousel-item-glow-color-rgb));
+  transform: rotateY(var(--_rotation)) translateZ(calc(var(--_radius) * var(--carousel-item-hover-effect)));
 }
 
 .carousel .carousel-item a {
-    display: block;
-    width: inherit;
-    height: inherit;
-    text-indent: -9999px;
-    background-color: rgba(var(--carousel-item-empty-color-rgb), 0.5);
-    background-image: var(--_image-url);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    transition: filter var(--carousel-transition-duration) var(--carousel-transition-ease);
-    
+  display: block;
+  width: inherit;
+  height: inherit;
+  text-indent: -9999px;
+  background-color: rgba(var(--carousel-item-empty-color-rgb), 0.5);
+  background-image: var(--_image-url);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: filter var(--carousel-transition-duration) var(--carousel-transition-ease);
 }
 
 .carousel .carousel-item::before {
-    content: '';
-    width: inherit;
-    height: inherit;
-    background-color: rgba(var(--carousel-item-empty-color-rgb), 0.5);
-    background-image: 
-            linear-gradient(to top, rgba(var(--carousel-bg-color-rgb), 0.25) 0%, rgba(var(--carousel-bg-color-rgb), 1.0) 75%), 
-            var(--_image-url);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    pointer-events: none;
-    filter: blur(var(--carousel-item-reflection-blur)) grayscale(100%);
-    transition: filter var(--carousel-transition-duration) var(--carousel-transition-ease);
-    transform-style: inherit;
-    transform-origin: center bottom;
-    transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg);
-    position: absolute;
+  content: '';
+  width: inherit;
+  height: inherit;
+  background-color: rgba(var(--carousel-item-empty-color-rgb), 0.5);
+  background-image: 
+          linear-gradient(to top, rgba(var(--carousel-bg-color-rgb), 0.25) 0%, rgba(var(--carousel-bg-color-rgb), 1.0) 75%), 
+          var(--_image-url);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  pointer-events: none;
+  filter: blur(var(--carousel-item-reflection-blur)) grayscale(100%);
+  transition: filter var(--carousel-transition-duration) var(--carousel-transition-ease);
+  transform-style: inherit;
+  transform-origin: center bottom;
+  transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg);
+  position: absolute;
 }
 
 h2.movie {
@@ -164,9 +160,9 @@ h2.movie {
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: thin;
- 
 }
-body:after{
+
+body:after {
   content: "";
   display: block;
   position: fixed;
@@ -176,17 +172,16 @@ body:after{
   z-index: -1;
   width: 200%;
   height: 200%;
-  
   background-size: contain;
   background-position: 600px -200px;
-  
   filter: blur(30px);
 }
+
 .movie-card {
   position: relative;
   box-sizing: border-box;
-  width: 50%;
-  max-width: 800px;
+  width: calc(50% - 20px);
+  max-width: 900px;
   height: 300px;
   background-position: center;
   background-size: cover;
@@ -196,7 +191,8 @@ body:after{
   color: white;
   padding: 2vh 3%;
 }
-.movie-card:after{
+
+.movie-card:after {
   content: "";
   display: block;
   position: absolute;
@@ -210,15 +206,19 @@ body:after{
   will-change: transform;
   z-index: 0;
 }
+
 i {
+  margin-left: 20px;
   font-size: .7em;
   color: #ff5b84;
 }
+
 h1 {
   font-size: 170%;
   position: relative;
   z-index: 10;
 }
+
 span {
   display: inline-block;
   position: relative;
@@ -227,6 +227,7 @@ span {
   margin-right: 80px;
   color: rgb(210, 210, 210);
 }
+
 .watch {
   display: block;
   border: 1px solid white;
@@ -242,15 +243,18 @@ span {
   box-shadow: 0 0 10px rgba(0,0,0,.5);
   transition: all .2s;
 }
+
 button:hover {
   background: rgba(255, 255, 255, .8);
   color: black;
   box-shadow: 0 0 10px rgba(255,255,255,.5);
   mix-blend-mode: screen;
 }
+
 button:active {
   transform: translateY(2px);
 }
+
 p {
   position: relative;
   margin-top: 20px;
@@ -261,26 +265,27 @@ p {
 }
 
 @media (max-width: 768px) {
- 
   .movie-card {
     width: 75%;
     height: 200px;
   }
+  
   h1 {
-  font-size: 120%;
+    font-size: 120%;
   }
+  
   p {
     display: none;
-/*     overflow: hidden;
-    width: 100%;
-    height: 30%; */
   }
+  
   .watch {
     margin: 5% auto;
   }
 }
+
 @media (max-width: 500px) {
   .movie-card {
     width: 100%;
   }
 }
+

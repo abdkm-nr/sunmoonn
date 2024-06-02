@@ -1,35 +1,35 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, } from 'react-router-dom';
-import Header from './Header/Header';
-import All from './Home/Home';
-import About from './About/About';
-import Contact from './Contact/Contact';
-import Login from './Login/Login';
-import OurTeam from './OurTeam/OurTeam';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import All from './components/Home'; 
+import About from './About/About'; 
+import Contact from './Contact/Contact'; 
+import OurTeam from './OurTeam/OurTeam'; 
+import CatalogPage from "./components/CatalogPage";
+import MoviePage from "./components/MoviePage";
+import { moviedata } from './components/moviedata';
 
 function App() {
   const handleContactSubmit = (formData) => {
     console.log('Contact form data:', formData);
-    // Здесь можно отправить данные на сервер
   };
 
-// const App = () => {
   return (
     <BrowserRouter>
+      <Header />
       <div>
-        <Header />
         <Routes>
           <Route path="/" element={<All />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/contact" element={<Contact/>} /> */}
           <Route path="/contact" element={<Contact onSubmit={handleContactSubmit} />} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/ourteam" element={<OurTeam/>} />
+          <Route path="/ourteam" element={<OurTeam />} />
+          <Route path="/CatalogPage" element={<CatalogPage />} />
+          <Route exact path="/movies" element={<CatalogPage />} />
+          <Route path="/movies/:id" element={<MoviePage movies={moviedata} />} />
         </Routes>
       </div>
     </BrowserRouter>
   );
 }
-
 
 export default App;

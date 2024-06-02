@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+body {
+  background: #000000 url('http://www.luismruiz.com/img/blured.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 100px;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  height: 360px;
+  padding: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  background: rgba(124, 20, 20, 0.5);
+  box-shadow: 0 0 70px 3px rgba(200, 171, 171, 0.5);
+  overflow: hidden;
+}
+
+textarea,
+input {
+  width: 276px;
+  border: 1px solid rgba(96, 27, 27, 0.4);
+  border-radius: 4px;
+  display: block;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+textarea {
+  height: 110px;
+  padding-left: 45px;
+}
+
+input.name {
+  background-image: url('http://luismruiz.com/img/gemicon_name.png');
+  background-repeat: no-repeat;
+  background-position: 16px 16px;
+  padding-left: 45px;
+}
+
+input.email {
+  background-image: url('http://luismruiz.com/img/gemicon_email.png');
+  background-repeat: no-repeat;
+  background-position: 16px 20px;
+  padding-left: 45px;
+}
+
+input[type='submit'] {
+  cursor: pointer;
+  width: 138px;
+  height: 44px;
+  float: right;
+  border: 1px solid #6c1400;
+  background: #540909;
+  background: linear-gradient(to bottom, #e42929, #ffffff);
+  padding: 10.5px 21px;
+  border-radius: 6px;
+  box-shadow: rgba(154, 7, 7, 0.1) 0 1px 0, inset rgba(255, 255, 255, 0.7) 0 1px 0;
+  text-shadow: #333333 0 1px 0;
+  color: #e1e1e1;
+}
+
+input[type='submit']:hover {
+  background: linear-gradient(to bottom, rgb(216, 50, 50), #ac2a2a);
+  color: #fff;
+}
+
+input[type='submit']:active {
+  margin-top: 1px;
+  background: linear-gradient(to bottom, #722b2b, #b31919);
+  color: #fff;
+  box-shadow: rgba(255, 255, 255, 0) 0 1px 0, inset rgba(255, 255, 255, 0.7) 0 1px 0;
+}
+
+input:focus,
+textarea:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5);
+}
+
+::placeholder {
+  color: #fff;
+}

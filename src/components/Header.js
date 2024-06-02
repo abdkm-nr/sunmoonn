@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './css/css.css';
@@ -26,23 +25,18 @@ const Header = () => {
         <nav className="nav-collapse collapse">
           <ul className="nav">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/CatalogPage">Catalog</Link></li>
+            <li><Link to="/about">About Filmx</Link></li>
             <li 
               className="dropdown" 
               onMouseEnter={handleMouseEnter} 
               onMouseLeave={handleMouseLeave}
             >
-              <Link to="/services">Services</Link>
-              {dropdownVisible && (
-                <ul className="dropdown-menu">
-                  <li><Link to="/services/web-development">Web Development</Link></li>
-                  <li><Link to="/services/app-development">App Development</Link></li>
-                  <li><Link to="/services/seo-optimization">SEO Optimization</Link></li>
-                </ul>
-              )}
             </li>
+            <li><Link to="/ourteam">Our Team</Link></li>
             <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/login">Login</Link></li> {/* Add this line */}
+            
+
           </ul>
         </nav>
       </div>

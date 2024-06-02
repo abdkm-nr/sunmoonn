@@ -1,9 +1,9 @@
 import React from 'react';
-import './team.css'; // Используем отдельный CSS файл для стилизации "О нас"
-import ava1 from './me.jpg'; // Импортируем изображения
-import ava2 from './nurai.jpg'; // Импортируем изображения
+import './team.css'; 
+import ava1 from './me.jpg'; 
+import ava2 from './nurai.jpg'; 
 
-// Функциональный компонент для отображения информации о члене команды
+
 const TeamMember = ({ name, role, avatar, instagram }) => {
   return (
     <div className="about-team-member">
@@ -15,21 +15,21 @@ const TeamMember = ({ name, role, avatar, instagram }) => {
   );
 }
 
-// Главный компонент "О нас"
+
 const About = () => {
-  // Список членов команды
+
   const teamMembers = [
     {
       name: 'Madina Zinolla',
       role: 'Creator of this site',
       avatar: ava1,
-      instagram: '',
+      instagram: 'https://www.instagram.com/znmadz/',
     },
     {
       name: 'Nurai Abdikaim',
       role: 'Creator of this site',
       avatar: ava2,
-      instagram: '',
+      instagram: 'https://www.instagram.com/abdkm.nr/',
     }
   ];
 

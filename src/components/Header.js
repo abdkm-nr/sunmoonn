@@ -3,16 +3,6 @@ import { Link } from 'react-router-dom';
 import './css/css.css';
 
 const Header = () => {
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-
-  const handleMouseEnter = () => {
-    setDropdownVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    setDropdownVisible(false);
-  };
-
   return (
     <header className="navbar navbar-fixed-top">
       <div className="container">
@@ -27,16 +17,8 @@ const Header = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/CatalogPage">Catalog</Link></li>
             <li><Link to="/about">About Filmx</Link></li>
-            <li 
-              className="dropdown" 
-              onMouseEnter={handleMouseEnter} 
-              onMouseLeave={handleMouseLeave}
-            >
-            </li>
-            <li><Link to="/ourteam">Our Team</Link></li>
             <li><Link to="/contact">Contact</Link></li>
-            
-
+            <li><Link to="/ourteam">Our Team</Link></li>
           </ul>
         </nav>
       </div>

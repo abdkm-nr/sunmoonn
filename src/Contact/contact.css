@@ -33,7 +33,7 @@ input {
   color: #fff;
   margin-bottom: 20px;
   padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 textarea {
@@ -78,7 +78,7 @@ input[type='submit']:hover {
 input[type='submit']:active {
   margin-top: 1px;
   background: linear-gradient(to bottom, #722b2b, #b31919);
-  color: #fff;
+  color: #3a3535;
   box-shadow: rgba(255, 255, 255, 0) 0 1px 0, inset rgba(255, 255, 255, 0.7) 0 1px 0;
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './css/home.css';
 import { movieDB, carouselItems } from './moviedata';
 
@@ -21,7 +21,6 @@ function Home() {
 
 function Anime() {
   const [movies, setMovies] = useState([]);
-  const cardContainerRef = useRef(null);
 
   useEffect(() => {
     movieDB.forEach((element) => {
@@ -35,57 +34,25 @@ function Anime() {
     setMovies(movieDB);
   }, []);
 
-  useEffect(() => {
-    if (cardContainerRef.current) {
-      // Clear any existing children to avoid duplication
-      cardContainerRef.current.innerHTML = '';
-      movies.forEach(createCard);
-    }
-  }, [movies]);
-
-  const createCard = (element, i) => {
-    const card = document.createElement('div');
-    card.setAttribute("class", "movie-card");
-    card.style.backgroundImage = element.background;
-
-    const title = document.createElement('h1');
-    title.innerText = element.title;
-    card.appendChild(title);
-
-    const runtime = document.createElement('span');
-    runtime.innerText = element.runtime + " min";
-    card.appendChild(runtime);
-
-    const star = document.createElement("i");
-    star.setAttribute("class", "fas fa-star");
-    const rating = document.createElement('span');
-    rating.innerText = element.rating + " ";
-    rating.appendChild(star);
-    card.appendChild(rating);
-
-    const synopsis = document.createElement('p');
-    synopsis.innerText = element.synopsis;
-    card.appendChild(synopsis);
-
-    const watch = document.createElement('button');
-    watch.setAttribute("class", "watch");
-    if (!element.hasWatched)
-      watch.innerText = "WATCH MOVIE";
-    else
-      watch.innerText = "WATCH AGAIN";
-    card.appendChild(watch);
-
-    if (cardContainerRef.current) {
-      cardContainerRef.current.appendChild(card);
-    }
-  };
+  
+  
 
   return (
     <div>
       <Home />
-      <h2 className='movie'>TOP Filmx</h2>
-      <div className='card' ref={cardContainerRef}>
-        {movies.map((element, i) => createCard(element, i))}
+      <h2 className="movie">TOP Filmx</h2>
+      <div className="card">
+        {movies.map((element) => (
+          <div className="movie-card" style={{ backgroundImage: `${element.background}` }} key={element.title}>
+            <h1>{element.title}</h1>
+            <span>{element.runtime} min</span>
+            <div>
+              <span>{element.rating} </span>
+              <i className="fas fa-star"></i>
+            </div>
+            <p>{element.synopsis}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
